@@ -1,0 +1,64 @@
+<%- include('../partials/header.ejs')  %>
+
+<title>Listagem de Clientes</title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        
+        <div class="card mt-2">
+            <div style="width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: rgba(14, 184, 184, 0.652);
+            border-radius: 8px;
+            font-weight: bolder;
+            color: #000;
+            gap: 30%; ">
+            <div>
+                <%- include('../partials/menu.ejs')  %>
+            </div>
+                LISTAGEM DE CLIENTES
+            </div>
+        </div>
+        
+        <div style="display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 10px;
+        gap: 60px;">
+
+        <%
+            cliente.forEach(cliente=>{
+        %>
+
+            <div class="card mt-2" style="padding: 10px; border: 1px solid black;">
+                <div class="card-body" style="display: flex; flex-direction: column; gap: 30px;">
+                    <div style="display: flex; align-items: center; gap: 20px; font-weight: bold;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: 40px; width: auto;"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                        <%= cliente.nome_cliente %>
+                    </div>
+                    <div style="font-weight: 600; font-size: 13px;">
+                       Email: <%= cliente.email_cliente %>
+                      Telefone: <%= cliente.telefone_cliente %>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-around;">
+                    <a href="/formEdicaoClientes/<%= cliente.id %>" class="btn btn-success mt-1" style="background-color: rgba(14, 184, 184, 0.55) !important; border: none; font-weight: 700; color: black;">editar</a>
+                    <a href="/excluirCliente/<%= cliente.id %>" class="btn btn-danger mt-1" style="background-color: rgba(174, 25, 11, 0.55) !important; border: none; font-weight: 700; color: black;">excluir</a>
+                </div>
+            </div>
+
+        <% }) %>
+
+    </div>
+
+      </div>  
+
+</body>
+
+<%- include('../partials/footer.ejs')  %>

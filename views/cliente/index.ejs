@@ -1,0 +1,52 @@
+<%- include('../partials/header.ejs')  %>
+
+<title>Cadastro de Clientes</title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <div class="card mt-2">
+            <div style="width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: rgba(14, 184, 184, 0.652);
+            border-radius: 8px;
+            font-weight: bolder;
+            color: #000;
+            gap: 30%; ">
+            <div>
+                <%- include('../partials/menu.ejs')  %>
+            </div>
+                CADASTRO DE CLIENTE
+            </div>
+        </div>
+
+        <div class="card-body" style="border: 1px solid rgba(0, 0, 0, 0.352); border-radius: 8px ; margin-top: 30px;">
+            <form action="http://localhost:4800/inserirClientes" method="post" style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <label for="">Crie os dados do Cliente nos seguintes campos:</label>
+                <input type="text" class="form-control" 
+                        name="nome_cliente" id="nome_cliente"
+                        placeholder="Insira o nome do cliente">
+
+                        <input type="text" class="form-control" 
+                                name="email_cliente" id="email_cliente"
+                                placeholder="Insira o email do cliente">  
+                                
+                                <input type="text" class="form-control" 
+                                name="telefone_cliente" id="telefone_cliente"
+                                placeholder="Insira o telefone do cliente"> 
+                
+                <button class="btn btn-success mt-2">cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    </body>
+
+<%- include('../partials/footer.ejs')  %>
